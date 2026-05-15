@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우주를 꿈꾸는 교실 | 오션중학교 과학</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #05070a;
+            color: #e0e0e0;
+            scroll-behavior: smooth;
+        }
+
+        .star-bg {
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 별 반짝이는 효과 */
+        .stars {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(5,7,10,0) 0%, rgba(5,7,10,1) 100%);
+        }
+
+        .card-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px rgba(255, 255, 255, 0.1) solid;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: rgba(60, 132, 246, 0.5);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 10px rgba(60, 132, 246, 0.8);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        nav {
+            background: rgba(5, 7, 10, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3">
+                <!-- 로고 이미지와 텍스트 결합 -->
+                <div class="flex items-center gap-3 group cursor-pointer">
+                    <div class="bg-white/10 p-1 rounded-lg border border-white/10 group-hover:border-blue-500/50 transition-all">
+                        <img src="./images/logo.png" alt="오션중학교 로고" class="h-8 w-auto object-contain" onerror="this.src='https://via.placeholder.com/32x32?text=S'">
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white group-hover:text-blue-400 transition-colors">
+                        오션중학교 <span class="text-blue-500">과학</span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#class" class="text-gray-300 hover:text-blue-400 transition-colors">수업소개</a>
+                <a href="#club" class="text-gray-300 hover:text-blue-400 transition-colors">천문동아리</a>
+                <a href="mailto:teacher@example.com" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30 transition-all">
+                    질문하기
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="star-bg min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+        <div class="stars" id="star-container"></div>
+        
+        <div class="z-10 max-w-4xl">
+            <span class="inline-block px-4 py-1 mb-6 text-sm font-semibold tracking-widest text-blue-400 border border-blue-400/50 rounded-full uppercase">
+                Ocean Middle School · Science Dept
+            </span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white">
+                우주를 품은 <span class="text-blue-500 text-glow">교실</span>,<br>
+                별을 찾는 <span class="text-indigo-400 text-glow">아이들</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                교과서를 넘어 밤하늘의 경이로움을 탐구합니다. 
+                오션중학교 학생들과 함께 우주의 비밀을 스스로 파헤치는 즐거운 과학 시간을 만들어갑니다.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#class" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg shadow-blue-900/20">
+                    수업 엿보기
+                </a>
+                <a href="#club" class="bg-transparent border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-xl font-bold transition-all">
+                    천문 동아리 안내
+                </a>
+                <a href="mailto:teacher@example.com" class="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-question-circle"></i> 질문하기
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 floating">
+            <i class="fas fa-chevron-down text-gray-500 text-2xl"></i>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-32 hero-gradient"></div>
+    </header>
+
+    <!-- Class Philosophy Section -->
+    <section id="class" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">탐구 중심 수업</h2>
+            <p class="text-gray-500">학생들이 주인이 되어 우주의 지도를 그려나갑니다.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="w-14 h-14 bg-blue-900/50 flex items-center justify-center rounded-lg mb-6">
+                    <i class="fas fa-search-location text-blue-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">자기주도 조사</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    단순한 지식 전달을 지양합니다. 천체 관측법부터 심우주 천체까지, 학생들이 직접 주제를 설정하고 데이터를 수집하여 자신만의 탐구 보고서를 완성합니다.
+                </p>
+            </div>
+
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="w-14 h-14 bg-indigo-900/50 flex items-center justify-center rounded-lg mb-6">
+                    <i class="fas fa-telescope text-indigo-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">실전 관측법</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    망원경의 원리를 배우고 직접 조립하며, 성도를 읽는 법을 익힙니다. 이론으로만 보던 행성과 성단을 내 눈으로 직접 찾아내는 기쁨을 경험합니다.
+                </p>
+            </div>
+
+            <div class="card-glass p-8 rounded-2xl">
+                <div class="w-14 h-14 bg-purple-900/50 flex items-center justify-center rounded-lg mb-6">
+                    <i class="fas fa-share-nodes text-purple-400 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4 text-white">지식 공유의 장</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">
+                    조사한 내용을 동료들과 토론하고 발표하며 함께 성장합니다. 과학적 사고력뿐만 아니라 커뮤니케이션 능력을 함께 키워가는 협력적 배움을 지향합니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Astronomy Club Section -->
+    <section id="club" class="py-24 bg-gray-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <h2 class="text-4xl font-bold mb-6 text-blue-400">오션중학교 천문 동아리</h2>
+                    <h3 class="text-2xl font-bold mb-4 text-white">"어두운 밤일수록 별은 더 밝게 빛납니다"</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        정규 수업 시간을 넘어 더 깊은 우주를 만나고 싶은 친구들이 모였습니다. 
+                        늦은 저녁 학교 운동장에서 함께 망원경을 설치하고, 따뜻한 코코아 한 잔과 함께 밤하늘의 이야기를 나눕니다.
+                    </p>
+                    <ul class="space-y-4 mb-8 text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-blue-500"></i> 월 1회 야간 정기 관측회 운영
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-blue-500"></i> 계절별 별자리 지도 제작 프로젝트
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-blue-500"></i> 외부 천문대 견학 및 전문가 초청 강연
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex-1 w-full">
+                    <div class="aspect-square bg-blue-900/20 rounded-3xl border border-blue-500/30 flex items-center justify-center relative overflow-hidden group">
+                        <i class="fas fa-satellite-dish text-8xl text-blue-500/50 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#05070a] to-transparent flex items-end p-8">
+                            <div>
+                                <p class="text-sm text-blue-400 font-bold uppercase mb-1">Latest Activity</p>
+                                <p class="text-xl font-bold text-white">지난 10월, 목성의 위성들을 관측했습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Bio -->
+    <section class="py-24 px-6 max-w-4xl mx-auto text-center border-t border-white/5">
+        <div class="mb-12">
+            <div class="w-32 h-32 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden shadow-2xl border-4 border-white/10">
+                <i class="fas fa-user-astronaut text-5xl text-white"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-2 text-white">선생님 소개</h2>
+            <p class="text-blue-500 font-medium">오션중학교 과학교사</p>
+        </div>
+        <div class="text-gray-400 space-y-6 text-lg">
+            <p>
+                "아이들의 눈에 반짝이는 호기심이 밤하늘의 별보다 더 아름답다고 믿습니다."
+            </p>
+            <p>
+                단순히 지식을 암기하는 과학이 아니라, 질문을 던지고 증거를 찾아가는 '진짜 과학'을 가르치고자 노력합니다. 
+                광활한 우주 앞에서 겸손함을 배우고, 무한한 가능성을 상상하는 아이들을 응원합니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer class="py-12 border-t border-gray-800 text-center bg-black/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-center gap-6 mb-8 text-2xl">
+                <a href="#" class="text-gray-500 hover:text-blue-500 transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-500 hover:text-blue-500 transition-colors"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="text-gray-500 hover:text-blue-500 transition-colors"><i class="fas fa-blog"></i></a>
+            </div>
+            <p class="text-gray-600 text-sm">
+                &copy; 2024 Ocean Middle School Science Class. Designed with ❤️ for future astronomers.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 배경에 별 생성
+        const container = document.getElementById('star-container');
+        const starCount = 150;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.style.position = 'absolute';
+            star.style.backgroundColor = 'white';
+            star.style.borderRadius = '50%';
+            
+            const size = Math.random() * 2 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            
+            star.style.opacity = Math.random();
+            star.style.animation = `twinkle ${Math.random() * 3 + 2}s infinite ease-in-out`;
+            
+            container.appendChild(star);
+        }
+
+        // 별 반짝임 애니메이션 스타일 동적 추가
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0.3; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.2); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
